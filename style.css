@@ -55,25 +55,22 @@
   font-weight: bold;
 }
 .recipes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
   padding: 20px;
 }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
 .card img {
-  width: 100%;
   height: 200px;
   object-fit: cover;
+  
 }
 
-.card-content {
-  padding: 15px;
+.card {
+  border-radius: 15px;
+  overflow: hidden;
 }
+
+.badge {
+  margin-right: 5px;
+  font-size: 0.8rem;
+}
+

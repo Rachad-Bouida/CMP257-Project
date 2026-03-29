@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MacroBites - Signup</title>
-    <link rel="stylesheet" href="Signup.css">
+    <title>MacroBites - Login</title>
+    <link rel="stylesheet" href="/SIGN-IN/Login.css">
 </head>
 <body>
 
     <button id="theme-toggle" class="theme">Change Theme</button>
 
-    <div class="Signup-container">
+    <div class="login-container">
         <div class="brand">
             🔥 MacroBites
         </div>
-        <p class="subtitle">Create an account and start eating healthy!</p>
+        <p class="subtitle">Log in to track your macros and meals.</p>
 
-        <form action="/dashboard" method="POST">
+        <form action="/main.html" method="POST">
             <div class="form-group">
-                <label for="email">Enter Email Address</label>
+                <label for="email">Email Address</label>
                 <input type="email" id="email" name="email" placeholder="you@example.com" required>
             </div>
 
             <div class="form-group">
-                <label for="password">Create Password</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="••••••••" required>
+                <a href="#" class="forgot-password">Forgot password?</a>
             </div>
 
-            <button type="submit" class="Signup-btn">Sign Up</button>
+            <button type="submit" class="login-btn">Log In</button>
         </form>
 
-       <p class="signup-link">Already have an account? <a href="login.html">Login here</a></p>
+        <p class="signup-link"> Don't have an account? <a href="Signup.html">Sign up here</a></p>
     </div>
 
-    <script src="Login.js"></script>
+    <script src="/SIGN-IN/script-sign.js"></script>
 </body>
 </html>
