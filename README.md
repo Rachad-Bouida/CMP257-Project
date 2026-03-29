@@ -1,31 +1,36 @@
 # CMP257-Project
 # High Priority (To Finish)
-1. Profile Page & Recipe Saving
+1. Trending Recipes Slider (New!)
+Goal: Create a professional landing experience with a featured content carousel.
+
+The Task: Implement a Bootstrap Carousel at the top of the main.html.
+
+Deliverable: A functional, auto-playing slider featuring our top 3 high-protein meals with "Explore" captions.
+
+
+2. Profile Page & Recipe Saving
 Goal: Allow users to keep a list of their favorite high-protein meals.
 
 The Task: Update the "Save Recipe" button in the modal to store data in localStorage.
 
 Deliverable: A profile.html page that displays only the user's saved cards.
 
-Difficulty: Medium (Requires handling browser storage).
 
-2. Global Theme Toggle
+3. Global Theme Toggle
 Goal: Bring the Dark/Light mode from the login page to the rest of the site.
 
 The Task: Implement the theme-toggle button in the main.html navbar.
 
 Deliverable: Seamless transition between themes that stays active even when switching pages.
 
-Difficulty: Low (Logic is already written in script-sign.js).
 
-3. Smart Sorting System
+4. Smart Sorting System
 Goal: Help users find the highest protein or lowest calorie meals quickly.
 
 The Task: Add a "Sort By" dropdown next to the search bar.
 
 Options: Alphabetical (A-Z), Protein (High to Low), and Calories (Low to High).
 
-Difficulty: Medium (Uses .sort() logic in script.js).
 
 # New Feature Ideas (Team Choice)
 Recipe Categorization
