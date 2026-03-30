@@ -22,6 +22,7 @@ loginForm.addEventListener('submit', function(event) {
 
     
     if (emailInput === 'placeholder@gmail.com' && passwordInput === 'placeholder') {
+        localStorage.setItem("isLoggedIn", "true");
         window.location.href = '/main.html';
     } else {
         alert('Incorrect email or password. Please try again!');
