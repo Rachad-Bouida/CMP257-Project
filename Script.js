@@ -127,13 +127,15 @@ recipes.forEach((recipe, index) => {
   append_card(container, recipe, index);
 });
 
+let currentRecipe = null; // track selected recipe
+
 document.addEventListener("click", function(e) {
   const card = e.target.closest(".recipe-card");
   if (!card) return;
 
   const recipe = recipes[card.dataset.index];
+  currentRecipe = recipe;
 
-  // Set content
   document.getElementById("modalTitle").textContent = recipe.title;
   document.getElementById("modalImg").src = "/Assets/" + recipe.img;
 
@@ -154,6 +156,19 @@ document.addEventListener("click", function(e) {
   modal.show();
 });
 
+document.getElementById("saveRecipe").addEventListener("click", () => {
+  if (!currentRecipe) return;
+
+  let saved = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+
+  const exists = saved.some(r => r.title === currentRecipe.title);
+  if (!exists) {
+    saved.push(currentRecipe);
+    localStorage.setItem("savedRecipes", JSON.stringify(saved));
+  }
+
+  alert("Recipe saved!");
+});
 
 search_button.addEventListener("input", (event) => {
   event.preventDefault();
@@ -181,7 +196,7 @@ search_button.addEventListener("input", (event) => {
         </div>
     `;
   }
-})
+});
 
 
 
@@ -198,4 +213,42 @@ sort.addEventListener("input", (event) => {
     displayed_recipes.forEach((recipe, index) => {
         append_card(container, recipe, index);
     })
-})
+});
+
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+const loginLink = document.getElementById("loginLink");
+const signupLink = document.getElementById("signupLink");
+const profileLink = document.getElementById("profileLink");
+
+if (isLoggedIn === "true") {
+  loginLink.style.display = "none";
+  signupLink.style.display = "none";
+  profileLink.style.display = "inline";
+};
+
+function updateNavbar() {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (isLoggedIn === "true") {
+    loginLink.style.display = "none";
+    signupLink.style.display = "none";
+    profileLink.style.display = "inline";
+    logoutLink.style.display = "inline";
+  } else {
+    loginLink.style.display = "inline";
+    signupLink.style.display = "inline";
+    profileLink.style.display = "none";
+    logoutLink.style.display = "none";
+  }
+}
+
+updateNavbar();
+
+logoutLink.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  localStorage.removeItem("isLoggedIn");
+
+  updateNavbar();
+});
