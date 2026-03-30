@@ -1,24 +1,3 @@
-const themeBtn = document.getElementById('theme-toggle');
-
-if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
-    if (themeBtn) themeBtn.textContent = 'Light Mode';
-}
-
-if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        
-        if (document.body.classList.contains('dark-mode')) {
-            themeBtn.textContent = 'Light Mode';
-            localStorage.setItem('theme', 'dark'); 
-        } else {
-            themeBtn.textContent = 'Dark Mode';
-            localStorage.setItem('theme', 'light'); 
-        }
-    });
-}
-
 const recipes = [
   {
     title: "Steak & Quinoa Power Bowl",
@@ -116,6 +95,27 @@ const container = document.getElementById("recipeContainer");
 const search_button = document.getElementById("search");
 const modal = new bootstrap.Modal(document.getElementById("recipeModal"));
 const sort = document.getElementById("sortSelect");
+const themeBtn = document.getElementById('theme-toggle');
+
+
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    if (themeBtn) themeBtn.textContent = 'Light Mode';
+}
+
+if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        
+        if (document.body.classList.contains('dark-mode')) {
+            themeBtn.textContent = 'Light Mode';
+            localStorage.setItem('theme', 'dark'); 
+        } else {
+            themeBtn.textContent = 'Dark Mode';
+            localStorage.setItem('theme', 'light'); 
+        }
+    });
+}
 
 
 function append_card(container, recipe, index){
@@ -144,9 +144,6 @@ function resetSearch(){
   displayed_recipes = recipes;
 }
 
-recipes.forEach((recipe, index) => {
-  append_card(container, recipe, index);
-});
 
 let currentRecipe = null; // track selected recipe
 
@@ -195,7 +192,6 @@ search_button.addEventListener("input", (event) => {
   event.preventDefault();
   let search = document.getElementById("search").value.toLowerCase();
   
-  // 1. Clear the screen first so we can show new results
   container.innerHTML = "";
   displayed_recipes = [];
 

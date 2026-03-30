@@ -77,14 +77,14 @@ body {
   font-size: 20px;
   font-weight: bold;
 }
-.nav-links a {
+a {
   margin: 0 15px;
   text-decoration: none;
   color: white;
   font-weight: 500;
 }
 
-.nav-links a:hover {
+a:hover {
   color: #facc15;
   text-decoration: none;
 }
