@@ -90,10 +90,14 @@ const recipes = [
     instructions: ["Sauté garlic and shrimp in olive oil", "Add zucchini noodles for only 2 mins (don't overcook)", "Toss with lemon zest and salt", "Serve immediately"]
   }
 ];
-
+let displayed_recipes = recipes;
 const container = document.getElementById("recipeContainer");
+const search_button = document.getElementById("search");
+const modal = new bootstrap.Modal(document.getElementById("recipeModal"));
+const sort = document.getElementById("sortSelect");
 
-recipes.forEach((recipe, index) => {
+
+function append_card(container, recipe, index){
   container.innerHTML += `
     <div class="col-md-4 recipe">
       <div class="card h-100 shadow-sm border-0 recipe-card" data-index="${index}">
@@ -107,9 +111,21 @@ recipes.forEach((recipe, index) => {
       </div>
     </div>
   `;
-});
+}
 
-const modal = new bootstrap.Modal(document.getElementById("recipeModal"));
+function resetSearch(){
+  search.value = "";
+  sort.value = "default";
+  container.innerHTML = "";
+  recipes.forEach((recipe, index) => {
+    append_card(container, recipe, index);
+  });
+  displayed_recipes = recipes;
+}
+
+recipes.forEach((recipe, index) => {
+  append_card(container, recipe, index);
+});
 
 document.addEventListener("click", function(e) {
   const card = e.target.closest(".recipe-card");
@@ -139,32 +155,47 @@ document.addEventListener("click", function(e) {
 });
 
 
-document.getElementById("search").addEventListener("input", (event) => {
+search_button.addEventListener("input", (event) => {
   event.preventDefault();
   let search = document.getElementById("search").value.toLowerCase();
   
   // 1. Clear the screen first so we can show new results
   container.innerHTML = "";
+  displayed_recipes = [];
 
 
-  console.log(search);
   recipes.forEach((recipe, index) => {
     let title = recipe.title.toLowerCase();
     if (title.includes(search)){
-      console.log("FOUND......");
-      container.innerHTML += `
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm border-0 recipe-card" data-index="${index}">
-            <img src="/Assets/${recipe.img}" class="card-img-top">
-            <div class="card-body">
-              <h5>${recipe.title}</h5>
-              <p class="text-muted">${recipe.description}</p>
-              <span class="badge bg-primary">${recipe.protein}</span>
-              <span class="badge bg-success">${recipe.calories}</span>
-            </div>
-          </div>
-        </div>
-      `;
+      displayed_recipes.push(recipe);
+      append_card(container, recipe, index);
     }
   })
+  if (displayed_recipes.length == 0){
+    container.innerHTML = `
+        <div class="col-12 text-center py-5 no-results">
+            <div class="display-1 mb-3">🍳</div> 
+            <h3 class="fw-bold">No recipes found</h3>
+            <p class="text-muted">We couldn't find anything matching "<strong>${search}</strong>".</p>
+            <button class="btn  mt-3" onclick="resetSearch()">View All Recipes</button>
+        </div>
+    `;
+  }
+})
+
+
+
+sort.addEventListener("input", (event) => {
+  let input = sort.value;
+  if (input == "az"){
+    displayed_recipes.sort((a,b) => a.title.localeCompare(b.title));
+  } else if (input == "protein"){
+    displayed_recipes.sort((a,b) => b.protein.localeCompare(a.protein));
+  } else if (input == "calories"){
+    displayed_recipes.sort((a,b) => a.calories.localeCompare(b.calories));
+  }
+  container.innerHTML = "";
+    displayed_recipes.forEach((recipe, index) => {
+        append_card(container, recipe, index);
+    })
 })

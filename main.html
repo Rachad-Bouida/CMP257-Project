@@ -9,20 +9,22 @@
 </head>
 <body>
 
-  <header class="navbar">
+  <header class="navbar align-items-center">
     <div class="logo">Easy Recipes</div>
-
-    <nav class="nav-links">
-      <a href="">Home</a>
-      <a href="/SIGN-IN/Login.html">Login </a>
-      <a href="/SIGN-IN/Signup.html">Sign up</a>
-    </nav>
 
     <div class="search-box">
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
       </form>
     </div>
+    
+    
+    <nav class="nav-links">
+      <a href="/SIGN-IN/Login.html">Login </a>
+      <a href="/SIGN-IN/Signup.html">Sign up</a>
+    </nav>
+
+    
   </header>
 
   <section class="hero">
@@ -38,11 +40,18 @@
   <section class="recipes">
     <!-- Cards structure -->
           <!-- Change the numbers for the margins and paddings (mb, py, etc.) to whichever looks best-->
-          <div class="container py-5">
-            <h2 class="mb-4">Recipes</h2>
+        <div class="container py-5">
+            <div class="container row">
+              <h2 class="mb-4 col-9">Recipes</h2>
+              <select id="sortSelect" class="form-control col-3">
+                <option value="default">Sort By...</option>
+                <option value="az">Alphabetical (A-Z)</option>
+                <option value="protein">Highest Protein</option>
+                <option value="calories">Lowest Calories</option>
+              </select>
+            </div>
             <div class="row g-4" id="recipeContainer"></div>
         </div>
-
         <!-- Recipe popup -->
         <div class="modal fade" id="recipeModal" tabindex="-1">
             <div class="modal-dialog modal-lg modal-dialog-centered">
