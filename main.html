@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MacroBites</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -27,13 +27,29 @@
     
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Eat Big, Lift Big.</h1>
-      <p>Discover macro-friendly recipes to hit your targets.</p>
-      <button class="btn">Explore Recipes</button>
+<section class="hero">
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" class="d-block w-100" alt="Food 1">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" class="d-block w-100" alt="Food 2">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" class="d-block w-100" alt="Food 3">
+      </div>
     </div>
-  </section>
+
+  </div>
+
+  <div class="hero-content">
+    <h1>Eat Big, Lift Big.</h1>
+    <p>Discover macro-friendly recipes to hit your targets.</p>
+    <button class="btn">Explore Recipes</button>
+  </div>
+</section>
 
   <h2 class="section-title">Trending Recipes</h2>
 
