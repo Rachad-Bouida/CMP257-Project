@@ -30,13 +30,39 @@ body {
   color: white;
 }
 .hero {
+  position: relative; 
   height: 400px;
-  background: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  overflow: hidden;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
+  height: 100%;
+}
+
+.carousel-item img {
+  object-fit: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
   color: white;
+  text-align: center;
 }
 .btn{
   background-color:#facc15;
