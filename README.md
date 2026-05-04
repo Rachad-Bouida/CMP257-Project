@@ -1,3 +1,3 @@
-Run database.db in SQL Workbench
-In the DAO file, change the password to your sql password
-run with Tomcat server
+1.Run database.db in SQL Workbench
+2.In the DAO file, change the password to your sql password
+3.run with Tomcat server
