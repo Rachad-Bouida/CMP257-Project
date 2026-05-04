@@ -1,0 +1,47 @@
+    /* ── Profile-page specific styles ───────────────────────────────────── */
+    body { font-family: 'Inter', sans-serif; }
+
+    /* Hero banner */
+    .profile-hero {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 60%, #facc15 200%);
+      padding: 3rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .profile-hero::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(250,204,21,0.18) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+    .profile-avatar {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 8px 24px rgba(250,204,21,0.35);
+      margin: 0 auto 1rem;
+    }
+    .profile-hero h1 { font-weight: 800; color: #fff; font-size: 1.8rem; }
+    .profile-hero p  { color: rgba(255,255,255,0.65); font-size: 0.95rem; }
+
+    .stat-pill {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50px;
+      padding: 0.35rem 1rem;
+      font-size: 0.85rem; color: #fff;
+      margin: 0.25rem;
+    }
+    .stat-pill span { color: #facc15; font-weight: 700; }
+
+   
+
+    /* Dark mode overrides */
+    body.dark-mode .profile-hero { background: linear-gradient(135deg, #0f172a, #1e293b); }
+   
