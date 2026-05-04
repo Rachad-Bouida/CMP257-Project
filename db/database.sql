@@ -9,8 +9,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(100) NOT NULL,
-    is_admin BOOLEAN DEFAULT FALSE 
+    password VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE recipes (
