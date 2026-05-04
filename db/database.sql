@@ -125,6 +125,4 @@ INSERT INTO recipes (title, img_url, description, protein, calories, ingredients
 '["Sauté garlic and shrimp in olive oil", "Add zucchini noodles for only 2 mins (dont overcook)", "Toss with lemon zest and salt", "Serve immediately"]'
 );
 
-ALTER TABLE users ADD is_admin BOOLEAN DEFAULT FALSE;
-
 ALTER TABLE saved_recipes ADD UNIQUE KEY unique_user_recipe (user_id, recipe_id); 
